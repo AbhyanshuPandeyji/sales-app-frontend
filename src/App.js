@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar.js';
+import AddSales from './Pages/AddSales.js';
+import Login from './Pages/Login.js';
+import Logout from './Pages/Logout.js'
+import {BrowserRouter as Router , Routes , Route } from 'react-router-dom'
+import Register from './Pages/Register';
+import TopSales from './Pages/TopSales';
+import TotalRevenue from './Pages/TotalRevenue';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      
+    <Router>
+    <Navbar/>
+      <Routes>
+      <Route exact path='/' element={<AddSales/>}/>
+      <Route exact path='/AddSales' element={<AddSales/>}/>
+      <Route exact path='/Login' element={<Login/>}/>
+      <Route exact path='/TopSales' element={<TopSales/>}/>
+      <Route exact path='/TotalRevenue' element={<TotalRevenue/>}/>
+      <Route exact path='/Register' element={<Register/>}/>
+      <Route exact path='/Logout' element={<Logout/>}/>
+      </Routes>
+    </Router>
+  
+      
   );
 }
 
